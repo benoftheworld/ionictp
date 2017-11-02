@@ -20,7 +20,6 @@ export class CameraPage {
     		encodingType: this.camera.EncodingType.JPEG,
     		mediaType: this.camera.MediaType.PICTURE
   	};
-
   	//Constructeur de la classe Camera
   	constructor(private camera: Camera, public alertCtrl : AlertController, private plt : Platform, public navCtrl: NavController, private base64ToGallery : Base64ToGallery, private localNotifications: LocalNotifications) {
       this.plt.ready().then((rdy) => {
@@ -47,8 +46,8 @@ export class CameraPage {
     		)
         this.localNotifications.schedule({
           id : 1,
-          title : 'Bravo le veau',
-          text : 'Votre photo a été enregistré avec succès',
+          title : 'Attention',
+          text : 'Benof notif',
           at : new Date(new Date().getTime() + 3600),
           data : {mydata : 'My Hidden message this is'}
         })
