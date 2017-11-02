@@ -44,11 +44,11 @@ export class CameraPage {
       			res => console.log('Saved image to gallery ', res),
       			err => console.log('Error saving image to gallery ', err)
     		)
-        this.localNotifications.runCamera({
+        this.localNotifications.schedule({
           id : 1,
           title : 'Attention',
           text : 'Benof notif',
-          at : new Date(new Date() + getTime() + 5 * 1000),
+          at : new Date(new Date().getTime() + 3600),
           data : {mydata : 'My Hidden message this is'}
         })
   		}, (err) => {
