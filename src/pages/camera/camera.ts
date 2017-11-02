@@ -30,8 +30,8 @@ export class CameraPage {
             subTitle : json.mydata
           });
           alert.present();
-        })
-      })
+        });
+      });
     }
 
   	// fonction qui permet de démarrer la caméra + d'enregistrer une image dans la gallerie du téléphone
@@ -43,14 +43,14 @@ export class CameraPage {
     	 	this.base64ToGallery.base64ToGallery(imageData, { prefix: '_img' }).then(
       			res => console.log('Saved image to gallery ', res),
       			err => console.log('Error saving image to gallery ', err)
-    		)
+    		);
         this.localNotifications.schedule({
           id : 1,
-          title : 'Attention',
-          text : 'Benof notif',
+          title : 'Bravo le veau',
+          text : 'Notification',
           at : new Date(new Date().getTime() + 3600),
-          data : {mydata : 'My Hidden message this is'}
-        })
+          data : {mydata : 'data'}
+        });
   		}, (err) => {
   	 	// Handle error
 
