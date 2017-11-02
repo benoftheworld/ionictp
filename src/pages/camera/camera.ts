@@ -50,7 +50,6 @@ export class CameraPage {
           title : 'Bravo le veau',
           text : 'Votre photo a été enregistré avec succès',
           at : new Date(new Date().getTime() + 3600),
-          led : '00FF00',
           data : {mydata : 'My Hidden message this is'}
         })
   		}, (err) => {
