@@ -1,23 +1,23 @@
 <ion-header>
   <ion-navbar>
-    <ion-title>
-      Application Iconic
-    </ion-title>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>List</ion-title>
   </ion-navbar>
 </ion-header>
 
-<ion-content padding>
-  <h3>{{app.name}} - {{app.version}}</h3>
-
+<ion-content>
   <ion-list>
-    <ion-item>
-      <ion-label floating>Username</ion-label>
-      <ion-input [(ngModel)]="app.name" type="text" value=""></ion-input>
-    </ion-item>
-
-    <ion-item>
-      <ion-label floating>Password</ion-label>
-      <ion-input [(ngModel)]="app.version" type="password"></ion-input>
-    </ion-item>
+    <button ion-item *ngFor="let item of items" (click)="itemTapped($event, item)">
+      <ion-icon [name]="item.icon" item-start></ion-icon>
+      {{item.title}}
+      <div class="item-note" item-end>
+        {{item.note}}
+      </div>
+    </button>
   </ion-list>
+  <div *ngIf="selectedItem" padding>
+    You navigated here from <b>{{selectedItem.title}}</b>
+  </div>
 </ion-content>
