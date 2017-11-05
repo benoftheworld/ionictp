@@ -8,7 +8,11 @@
 </ion-header>
 
 <ion-content padding>
-  <h3>Je suis dans la page camera</h3>
-  <button ion-button secondary (click)="runCamera()">Ouvrir la caméra</button>
+  <h3>Page Caméra</h3>
+  <button ion-button secondary (click)="runCamera()">Photo</button>
+  <button ion-button secondary (click)="runVideo()">Vidéo</button>
   <img src="{{base64Image}}">
+  <video controls="controls" preload="metadata" autoplay="autoplay" webkit-playsinline="webkit-playsinline" class="videoPlayer" style="width:100%">
+    <source src="{{PathVideo}}" type="video/mp4" />
+  </video>
 </ion-content>

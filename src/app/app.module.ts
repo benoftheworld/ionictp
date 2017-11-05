@@ -10,11 +10,11 @@ import { Camera } from '@ionic-native/camera';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 import { MyApp } from './app.component';
 import { HomePage } from '../pages/home/home';
-//import { ListPage } from '../pages/list/list';
 import { CameraPage } from '../pages/camera/camera';
 import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 
 
 /**
@@ -24,7 +24,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   declarations: [
     MyApp,
     HomePage,
-  //  ListPage,
     CameraPage
   ],
   imports: [
@@ -35,7 +34,6 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
   entryComponents: [
     MyApp,
     HomePage,
-  //  ListPage,
     CameraPage
   ],
   providers: [
@@ -44,6 +42,7 @@ import { LocalNotifications } from '@ionic-native/local-notifications';
     Camera,
     Base64ToGallery,
     LocalNotifications,
+     MediaCapture,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })

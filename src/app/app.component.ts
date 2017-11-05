@@ -9,7 +9,6 @@ import { StatusBar } from '@ionic-native/status-bar';
 import { SplashScreen } from '@ionic-native/splash-screen';
 import { Base64ToGallery} from '@ionic-native/base64-to-gallery';
 import { HomePage } from '../pages/home/home';
-//import { ListPage } from '../pages/list/list';
 import { CameraPage } from '../pages/camera/camera';
 
 
@@ -43,7 +42,6 @@ export class MyApp {
     this.initializeApp();
     this.pages = [
       { title: 'Home', component: HomePage },
-      //{ title: 'List', component: ListPage },
       { title: 'Camera', component : CameraPage}
     ];
   }
@@ -62,7 +60,7 @@ export class MyApp {
 
   /**
    * openPage - Ouvre une page
-   * @param page 
+   * @param page
    */
   openPage(page) {
     // Reset the content nav to have just this page

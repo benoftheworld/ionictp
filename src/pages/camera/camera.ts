@@ -8,6 +8,7 @@ import { Camera, CameraOptions } from '@ionic-native/camera';
 import { NavController, AlertController, Platform } from 'ionic-angular';
 import { Base64ToGallery } from '@ionic-native/base64-to-gallery';
 import { LocalNotifications } from '@ionic-native/local-notifications';
+import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ionic-native/media-capture';
 
 /**
 * Décorateur Component qui définit le template html à utliser et définition d'un selecteur
@@ -26,6 +27,7 @@ export class CameraPage {
   * Déclaration des variables de la classe
   */
   base64Image:String;
+  videoUrl : String;
   options: CameraOptions = {
     quality: 100,
     destinationType: this.camera.DestinationType.DATA_URL,
@@ -43,7 +45,7 @@ export class CameraPage {
   * @param  private base64ToGallery : Base64ToGallery
   * @param  private localNotifications: LocalNotifications
   */
-  constructor(private camera: Camera, public alertCtrl : AlertController, private plt : Platform, public navCtrl: NavController, private base64ToGallery : Base64ToGallery, private localNotifications: LocalNotifications) {
+  constructor(private mediaCapture: MediaCapture, private camera: Camera, public alertCtrl : AlertController, private plt : Platform, public navCtrl: NavController, private base64ToGallery : Base64ToGallery, private localNotifications: LocalNotifications) {
     this.plt.ready().then((rdy) => {
       this.localNotifications.on('click', (notification, state) => {
         let json = JSON.parse(notification.data);
@@ -79,5 +81,16 @@ export class CameraPage {
     }, (err) => {
 
     });
+  }
+
+  runVideo(){
+    let options: CaptureImageOptions = { limit: 3 };
+    this.mediaCapture.captureImage(options)
+      .then(
+        (data: MediaFile[]) => {
+          this.videoUrl = data[0].fullPath; // On recupère le chemin de la video 
+        },
+        (err: CaptureError) => console.error(err)
+      );
   }
 }
