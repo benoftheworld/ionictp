@@ -88,7 +88,7 @@ export class CameraPage {
     this.mediaCapture.captureImage(options)
       .then(
         (data: MediaFile[]) => {
-          this.videoUrl = data[0].fullPath; // On recupère le chemin de la video 
+          this.videoUrl = data[0].fullPath; // On recupère le chemin de la video
         },
         (err: CaptureError) => console.error(err)
       );

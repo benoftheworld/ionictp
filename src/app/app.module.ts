@@ -42,7 +42,7 @@ import { MediaCapture, MediaFile, CaptureError, CaptureImageOptions } from '@ion
     Camera,
     Base64ToGallery,
     LocalNotifications,
-     MediaCapture,
+    MediaCapture,
     {provide: ErrorHandler, useClass: IonicErrorHandler}
   ]
 })
